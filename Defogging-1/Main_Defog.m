@@ -9,7 +9,6 @@ clear;
 close all;
 
 %% -----------Í¼ÏñÈ¥ÎíËã·¨----------------
-
 %% ¼ÓÔØÍ¼Æ¬
 img = imread('foggy_bench.jpg');
 figure;imshow(img);title('ÎíÍ¼');
