@@ -1,0 +1,11 @@
+%真彩色图像的分解
+clc;
+RGB=imread('peppers.png');
+subplot(221),imshow(RGB)
+title('原始真彩色图像')
+subplot(222),imshow(RGB(:,:,1))
+title('真彩色图像的红色分量')
+subplot(223),imshow(RGB(:,:,2))
+title('真彩色图像的绿色分量')
+subplot(224),imshow(RGB(:,:,3))
+title('真彩色图像的蓝色分量')
