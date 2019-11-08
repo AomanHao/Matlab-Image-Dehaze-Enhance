@@ -56,7 +56,7 @@ resultg = adapthisteq(gimg);
 resultb = adapthisteq(bimg);
 result = cat(3, resultr, resultg, resultb);
 figure;imshow(result),title('CLAHE-RGB');
-
+imwrite(result,'CLAHE.jpg');
 %% CLAHE中对LAB的L通道的处理
 cform2lab=makecform('srgb2lab');
 LAB=applycform(img,cform2lab);
@@ -65,4 +65,3 @@ LAB(:,:,1)=adapthisteq(L);
 cform2srgb=makecform('lab2srgb');
 J=applycform(LAB,cform2srgb);
 figure;imshow(J),title('CLAHE-LAB-L');
-%
