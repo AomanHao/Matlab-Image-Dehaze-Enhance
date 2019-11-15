@@ -26,22 +26,12 @@ if d>=thresh
   fe(m+1,:)=fe(m+1,:)+v;
   fe(l+1,:)=fe(l+1,:)+v;
 else 
-%   fe(m+1,:)=fe(m+1,:)-v.*0.1;
-%   fe(l+1,:)=fe(l+1,:)-v.*0.1;
 end
     end
 end
     end
 end
 
-% for i=1:256
-%     for j=1:256
-%    if fe(i,j)<=0
-%        fe(i,j)=0;
-%    else
-%    end
-%     end
-% end
 
 for w1=1:256
     for k1=2:256
@@ -115,17 +105,5 @@ for i=1:w
    Jzz(i,j)=tzz(1,(J(i,j)+1));
     end
 end
-% hd=cat(3,h,s,Jd);
-% hm=cat(3,h,s,Jm);
-% hb=cat(3,h,s,Jb);
-% hz=cat(3,h,s,Jz);
-% hzz=cat(3,h,s,Jzz);
-
-
-% figure(5); imshow(hsv2rgb(hd));title('dark');
-% figure(6); imshow(hsv2rgb(hm));title('middle');
-% figure(7); imshow(hsv2rgb(hb));title('bright');
-% figure(8); imshow(hsv2rgb(hz));title('');
-% figure(9); imshow(hsv2rgb(hzz));title('');
 
 end
