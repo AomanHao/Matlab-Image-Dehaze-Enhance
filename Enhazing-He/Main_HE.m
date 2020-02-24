@@ -25,7 +25,6 @@ figure(2),bar(HisI),title('均衡前直方图');
 IE = histeq(I);
 [HisI2,len] = hist(IE,255);
 HisI2 = HisI2/length(IE);
-
 figure(3),bar(HisI2),title('均衡后直方图');
 
 RV = cat(3,H,S,IE);
