@@ -47,7 +47,7 @@ figure;imshow(R3);
 Rr=R.*(I(:,:,1)./img);
 Rg=R.*(I(:,:,2)./img);
 Rb=R.*(I(:,:,3)./img);
-rgb=cat(3,Rr,Rg,Rb);
+rgb=cat(3,Rr,Rg,Rb);% 合并3维矩阵
 figure;imshow(I);
 figure;imshow(rgb);
 imwrite(rgb,'result.jpg');%保存为tif
