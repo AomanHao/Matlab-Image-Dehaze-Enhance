@@ -1,4 +1,4 @@
-function [ Jzz ] = divChannel(J,val,thresh,a,sgs,bds)
+function [ Jzz ] = dehazing_CDIE_divChannel(J,val,thresh,a,sgs,bds)
 val=5;
 thresh=10;
 a=0.8;

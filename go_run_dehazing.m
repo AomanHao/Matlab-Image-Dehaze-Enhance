@@ -23,6 +23,9 @@ conf.save_file = '.\result\';
 flag_enhazing_he = 1;%直方图均衡
 flag_enhazing_ahe = 1;%局部直方图均衡
 flag_enhazing_clahe = 1;%限制局部直方图均衡
+flag_dehazing_CDIE = 1;%类似暗通道
+flag_dehazing_anyuanse = 1;%暗原色去雾
+
 
 for i = 1:img_num
     switch data_type
@@ -65,15 +68,37 @@ for i = 1:img_num
     %% 限制局部直方图均衡
     if flag_enhazing_clahe == 1
         conf.clahe_color_mode = 'rgb';%rgb ot lab
-        output = enhazing_CLAHE(input,conf);
+        output = enhazing_CLAHE(input);
         figure;imshow(result),title('CLAHE-RGB');
     end
     
-        %% 窗口均值分离
-    if flag_guide_LP == 1
-
+    %% 类似暗通道去雾
+    if flag_dehazing_CDIE == 1
+        output = dehazing_CDIE(input);
      
     end
+    %% 暗原色去雾
+    if flag_dehazing_anyuanse == 1
+        output = dehazing_anyuanse(input);
+        
+    end
+    
+    if flag_dehazing_DCP == 1
+        output = dehazing_DCP(input);
+        
+    end
+    
+    %%
+    if flag_enhazing_INDAN == 1
+        output = enhazing_INDAN(input);
+    end
+    
+    
+    
+    
+    
+    
+    
 end
 
 

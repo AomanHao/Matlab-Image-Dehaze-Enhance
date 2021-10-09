@@ -1,6 +1,6 @@
-function R = anyuanse(m_img)
+function output = dehazing_anyuanse(input)
 % 原始图像
-I=double(m_img)/255;
+I=double(input)/255;
 
 % 获取图像大小
 [h,w,c]=size(I);
@@ -120,4 +120,4 @@ for i=1:c
         end
     end
 end
-R = dehaze;
+output = dehaze;
