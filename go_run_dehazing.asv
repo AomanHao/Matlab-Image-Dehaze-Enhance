@@ -64,8 +64,7 @@ for i = 1:img_num
     
     %% 限制局部直方图均衡
     if flag_enhazing_clahe == 1
-        conf.clahe_color_mode = 'rgb';%rgb ot lab
-        output = enhazing_CLAHE(input,conf);
+
         figure;imshow(result),title('CLAHE-RGB');
     end
     
