@@ -104,9 +104,9 @@ for i = 1:img_num
         conf.MSR_b = -30;
         conf.MSR_alpha = 125;
         conf.MSR_beta = 46;
-        conf.MSR_mode = 'SSR';% SSR OR MSR OR MSRCR
+        conf.MSR_mode = 'MSRCR';% SSR OR MSR OR MSRCR
         output = enhazing_MSRCR(img,conf);
-                figure;imshow(output),title('enhazing_MSRCR');
+        figure;imshow(output),title('enhazing_MSRCR');
     end
     
     

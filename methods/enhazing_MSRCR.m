@@ -1,9 +1,10 @@
 function output = enhazing_MSRCR(input,conf)
 %% -----------带色彩恢复的多尺度视网膜增强算法（MSRCR）----------------
 
-Ir=input(:,:,1); 
-Ig=input(:,:,2); 
-Ib=input(:,:,3);
+
+Ir=double(input(:,:,1)); 
+Ig=double(input(:,:,2)); 
+Ib=double(input(:,:,3));
 
 %% %%%%%%%%设定高斯参数%%%%%% 
 sigma_1=15;   %三个高斯核 
@@ -17,19 +18,25 @@ Gauss_2=gauss_2/sum(gauss_2(:));
 gauss_3=exp(-(x.^2+y.^2)/(2*sigma_3*sigma_3)); 
 Gauss_3=gauss_3/sum(gauss_3(:)); 
 
-[MSR_r,SSR_r,MSRCR_r] = enhazing_MSR_rgbChannel(Ir,Ig,Ib,Gauss_1,Gauss_2,Gauss_3,conf);
+[MSR_r,SSR_r,Rr] = enhazing_MSR_rgbChannel(Ir,Gauss_1,Gauss_2,Gauss_3);
 
-[MSR_g,SSR_g,MSRCR_g] = enhazing_MSR_rgbChannel(Ig,Ig,Ib,Gauss_1,Gauss_2,Gauss_3,conf);
+[MSR_g,SSR_g,Gg] = enhazing_MSR_rgbChannel(Ig,Gauss_1,Gauss_2,Gauss_3);
 
-[MSR_b,SSR_b,MSRCR_b] = enhazing_MSR_rgbChannel(Ib,Gauss_1,Gauss_2,Gauss_3,conf);
+[MSR_b,SSR_b,Bb] = enhazing_MSR_rgbChannel(Ib,Gauss_1,Gauss_2,Gauss_3);
 
 %% 
 switch conf.MSR_mode
     case 'SSR'
+        
+        
         output = cat(3,SSR_r,SSR_g,SSR_b);
     case 'MSR'
         output = cat(3,MSR_r,MSR_g,MSR_b);
     case 'MSRCR'
+        %计算CR 
+        MSRCR_r = enhazing_MSRCR_rgb(Ir,Ig,Ib,Rr,conf);
+        MSRCR_g = enhazing_MSRCR_rgb(Ir,Ig,Ib,Gg,conf);
+        MSRCR_b = enhazing_MSRCR_rgb(Ir,Ig,Ib,Bb,conf);
         output = cat(3,MSRCR_r,MSRCR_g,MSRCR_b);  %将三通道图像合并 
 end
 
