@@ -3,7 +3,7 @@ function output = enhazing_INDAN(input)
 %2019年10月20日-2019年10月21日
 %论文：An Integrated Neighborhood Dependent Approach for Nonlinear Enhancement of Color Images
 
-
+input =im2double(input); 
 img=rgb2gray(input);
 
 %% 线性增强
@@ -35,10 +35,10 @@ R3=In.^r3;
 % figure;imshow(R3);
 %% 色彩恢复
 R=(R1+R2+R3)/3;
-figure;imshow(R3);
-Rr=R.*(I(:,:,1)./img);
-Rg=R.*(I(:,:,2)./img);
-Rb=R.*(I(:,:,3)./img);
+% figure;imshow(R3);
+Rr=R.*(input(:,:,1)./img);
+Rg=R.*(input(:,:,2)./img);
+Rb=R.*(input(:,:,3)./img);
 output=cat(3,Rr,Rg,Rb);% 合并3维矩阵
 % figure;imshow(I);
 % figure;imshow(output);

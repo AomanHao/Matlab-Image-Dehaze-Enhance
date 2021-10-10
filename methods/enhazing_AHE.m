@@ -1,7 +1,7 @@
 function output = enhazing_AHE(input,conf)
 
 output=input; %output is the input after AHE
-[m,n]=size(input);
+[m,n,~]=size(input);
 
 %ECR
 grid_cols=conf.grid;
