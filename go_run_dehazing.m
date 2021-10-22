@@ -20,14 +20,14 @@ data_type = 'bmp'; % raw: raw data
                     %bmp: bmp data
 conf.save_file = '.\result\';
 
-flag_enhazing_he = 1;%直方图均衡
-flag_enhazing_ahe = 0;%局部直方图均衡
-flag_enhazing_clahe = 1;%限制局部直方图均衡
-flag_dehazing_CDIE = 0;%类似暗通道
-flag_dehazing_anyuanse = 0;%暗原色去雾
-flag_dehazing_DCP = 0; %暗通道
-flag_enhazing_INDAN = 0; %
-flag_enhazing_MSRCR = 1;
+flag_enhance_he = 1;%直方图均衡
+flag_enhance_ahe = 0;%局部直方图均衡
+flag_enhance_clahe = 1;%限制局部直方图均衡
+flag_dehaze_CDIE = 0;%类似暗通道
+flag_dehaze_anyuanse = 0;%暗原色去雾
+flag_dehaze_DCP = 0; %暗通道
+flag_enhance_INDAN = 0; %
+flag_enhance_MSRCR = 1;
 flag_meng_bccr = 1;%meng的边界约束
 
 for i = 1:img_num
@@ -56,58 +56,58 @@ for i = 1:img_num
 
     
     %% 直方图均衡
-    if flag_enhazing_he == 1
-       output = enhazing_HE(img);
+    if flag_enhance_he == 1
+       output = EH_HE(img);
        figure;imshow(output),title('HE result');
     end
     %% 局部直方图均衡
-    if flag_enhazing_ahe == 1
+    if flag_enhance_ahe == 1
         conf.grid = 4;
         conf.limit = 256;
-        output = enhazing_AHE(img,conf);
+        output = EH_AHE(img,conf);
         figure;imshow(output),title('AHE result');
     end
     
     %% 限制局部直方图均衡
-    if flag_enhazing_clahe == 1
+    if flag_enhance_clahe == 1
         conf.clahe_color_mode = 'rgb';%rgb ot lab
-        output = enhazing_CLAHE(img,conf);
+        output = EH_CLAHE(img,conf);
         figure;imshow(output),title('CLAHE-RGB');
     end
     
     %% 类似暗通道去雾
-    if flag_dehazing_CDIE == 1
-        output = dehazing_CDIE(img);
+    if flag_dehaze_CDIE == 1
+        output = DH_CDIE(img);
         figure;imshow(output),title('CDIE');
     end
     %% 暗原色去雾
-    if flag_dehazing_anyuanse == 1
-        output = dehazing_anyuanse(img);
-        figure;imshow(output),title('dehazing_anyuanse');
+    if flag_dehaze_anyuanse == 1
+        output = DH_anyuanse(img);
+        figure;imshow(output),title('dehance_anyuanse');
     end
     
-    if flag_dehazing_DCP == 1
-        output = dehazing_DCP(img);
-        figure;imshow(output),title('dehazing_DCP');
+    if flag_dehaze_DCP == 1
+        output = DH_DCP(img);
+        figure;imshow(output),title('dehance_DCP');
     end
     
     %%
-    if flag_enhazing_INDAN == 1
-        output = enhazing_INDAN(img);
-                figure;imshow(output),title('enhazing_INDAN');
+    if flag_enhance_INDAN == 1
+        output = EH_INDAN(img);
+                figure;imshow(output),title('enhance_INDAN');
     end
     
     
     
     %% %%%%%%%%设定所需参数%%%%%%
-    if flag_enhazing_MSRCR == 1
+    if flag_enhance_MSRCR == 1
         conf.MSR_G = 192;
         conf.MSR_b = -30;
         conf.MSR_alpha = 125;
         conf.MSR_beta = 46;
         conf.MSR_mode = 'MSRCR';% SSR OR MSR OR MSRCR
-        output = enhazing_MSRCR(img,conf);
-        figure;imshow(output),title('enhazing_MSRCR');
+        output = EH_MSRCR(img,conf);
+        figure;imshow(output),title('enhance_MSRCR');
     end
     
         %% bccr
@@ -116,7 +116,7 @@ for i = 1:img_num
         conf.bccr_air_wsz = 15; % airlight window size
         conf.bccr_Bou_wsz = 3; % Boundcon window size
         conf.bccr_lambda = 2; % regularization parameter
-        out = DeHaze_bccr(img,conf);
+        out = DH_bccr(img,conf);
         figure;imshow(out),title('img-meng-bccr');
     end
 end
