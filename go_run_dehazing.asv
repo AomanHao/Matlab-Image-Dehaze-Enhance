@@ -28,7 +28,7 @@ flag_dehazing_anyuanse = 0;%暗原色去雾
 flag_dehazing_DCP = 0; %暗通道
 flag_enhazing_INDAN = 0; %
 flag_enhazing_MSRCR = 1;
-flag_meng_bccr = 1;%meng的边界约束
+flag_meng_bccr = 1;%meng边界约束
 
 for i = 1:img_num
     switch data_type

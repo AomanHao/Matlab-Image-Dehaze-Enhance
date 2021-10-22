@@ -1,4 +1,4 @@
-function  output = dehazing_CDIE(input)
+function  output = DH_CDIE(input)
 
 HSV = rgb2hsv(input);
 H=HSV(:,:,1);

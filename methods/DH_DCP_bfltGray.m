@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 实现双边滤波的灰度图像.
-function B = dehazing_DCP_bfltGray(A,w,sigma_d,sigma_r)
+function B = DH_DCP_bfltGray(A,w,sigma_d,sigma_r)
 
 % 预先计算高斯距离权重.
 [X,Y] = meshgrid(-w:w,-w:w);

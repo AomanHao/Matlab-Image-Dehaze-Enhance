@@ -1,4 +1,4 @@
-function output = enhazing_AHE(input,conf)
+function output =EH_AHE(input,conf)
 
 output=input; %output is the input after AHE
 [m,n,~]=size(input);

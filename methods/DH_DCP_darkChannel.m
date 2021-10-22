@@ -1,4 +1,4 @@
-function dark=dehazing_DCP_darkChannel(imRGB)
+function dark=DH_DCP_darkChannel(imRGB)
 r=imRGB(:,:,1);           %分别提取图像的三个通道
 g=imRGB(:,:,2);
 b=imRGB(:,:,3);

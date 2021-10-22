@@ -1,4 +1,4 @@
-function [MSR1,SSR1,RGB_Chan] = enhazing_MSR_rgbChannel(input_channel,Gauss_1,Gauss_2,Gauss_3)
+function [MSR1,SSR1,RGB_Chan] = EH_MSR_rgbChannel(input_channel,Gauss_1,Gauss_2,Gauss_3)
 %% -----------单尺度视网膜增强—RGB通道处理---------------
 
 %% %%%%%%%%对单分量操作%%%%%%% 

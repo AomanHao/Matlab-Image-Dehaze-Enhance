@@ -1,4 +1,4 @@
-function output = enhazing_INDAN(input)
+function output =EH_INDAN(input)
 
 %2019年10月20日-2019年10月21日
 %论文：An Integrated Neighborhood Dependent Approach for Nonlinear Enhancement of Color Images

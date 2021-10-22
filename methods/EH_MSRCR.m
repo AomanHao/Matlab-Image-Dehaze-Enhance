@@ -1,4 +1,4 @@
-function output = enhazing_MSRCR(input,conf)
+function output = EH_MSRCR(input,conf)
 %% -----------带色彩恢复的多尺度视网膜增强算法（MSRCR）----------------
 
 

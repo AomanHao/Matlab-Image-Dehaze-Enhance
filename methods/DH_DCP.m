@@ -1,4 +1,4 @@
-function  output = dehazing_DCP(imageRGB)
+function  output = DH_DCP(imageRGB)
 
 imageRGB = im2double(imageRGB);
 %% °µÍ¨µÀ¹À¼Æ

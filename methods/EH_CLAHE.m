@@ -1,4 +1,4 @@
-function result = enhazing_CLAHE(input,conf)
+function result = EH_CLAHE(input,conf)
 
 switch conf.clahe_color_mode
     case 'rgb'

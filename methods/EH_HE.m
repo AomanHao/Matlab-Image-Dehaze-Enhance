@@ -1,4 +1,4 @@
-function output = enhazing_HE(input)
+function output = EH_HE(input)
 %% Ö±·½Í¼¾ùºâ
 
 HSI_f = rgb2hsi(uint8(input));

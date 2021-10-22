@@ -1,4 +1,4 @@
-function output = enhazing_MSRCR_rgb(Ir,Ig,Ib,Rr,conf)
+function output = EH_MSRCR_rgb(Ir,Ig,Ib,Rr,conf)
 %% -----------
 G = conf.MSR_G;
 b = conf.MSR_b;
