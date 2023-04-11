@@ -1,4 +1,4 @@
-function output = DH_anyuanse(input)
+function output = DH_dcp2(input)
 % Ô­Ê¼Í¼Ïñ
 I=double(input)/255;
 
